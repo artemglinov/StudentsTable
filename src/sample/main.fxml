@@ -1,0 +1,65 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<BorderPane fx:id="mainBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
+            fx:controller="sample.Controller" xmlns:fx="http://javafx.com/fxml/1">
+    <center>
+        <TableView fx:id="studentTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <columns>
+<!--                <TableColumn prefWidth="${artistTable.width}" text="Name" >-->
+                <TableColumn text="ID" >
+                    <cellValueFactory>
+                        <PropertyValueFactory property= "_id"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Имя" >
+                    <cellValueFactory>
+                        <PropertyValueFactory property= "first_name"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Отчество" >
+                    <cellValueFactory>
+                        <PropertyValueFactory property= "patronymic"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Фамилия" >
+                    <cellValueFactory>
+                        <PropertyValueFactory property= "last_name"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Дата рождения" >
+                    <cellValueFactory>
+                        <PropertyValueFactory property= "date_of_birth"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Номер группы" >
+                    <cellValueFactory>
+                        <PropertyValueFactory property= "group_number"/>
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+            <BorderPane.margin>
+                <Insets right="10.0" />
+            </BorderPane.margin>
+        </TableView>
+    </center>
+    <right>
+        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="170.00" spacing="20.0" BorderPane.alignment="CENTER">
+            <children>
+                <Button onAction="#listStudents" maxWidth="Infinity" mnemonicParsing="false" text="Показать список студентов" />
+                <Button onAction="#showInsertDialog" maxWidth="Infinity" mnemonicParsing="false" text="Добавить студента" />
+                <Button onAction="#deleteStudent" maxWidth="Infinity" mnemonicParsing="false" text="Удалить студента" />
+            </children>
+            <BorderPane.margin>
+                <Insets right="10.0" />
+            </BorderPane.margin>
+        </VBox>
+    </right>
+</BorderPane>
